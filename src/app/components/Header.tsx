@@ -57,7 +57,7 @@ export default function Header() {
 
 	return (
 		<header className="bg-light">
-			<h1 className="text-[13px] font-bold">{navDatas?.data.logo}</h1>
+			<span className=" font-bold">{navDatas?.data.logo}</span>
 			<nav className="ml-[205px]">
 				<ul className="">
 					{navDatas?.data.links.map(({ nav_link, nav_text, pathname }, index) => (

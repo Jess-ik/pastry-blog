@@ -1,20 +1,45 @@
 {
   "format": "page",
-  "id": "home",
-  "label": "home",
-  "repeatable": false,
+  "id": "recipe_page",
+  "label": "Recipe Page",
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "recipe_name": {
+        "type": "Text",
+        "config": {
+          "label": "Recipe Name",
+          "placeholder": ""
+        }
+      },
+      "recipe_desc": {
+        "type": "Text",
+        "config": {
+          "label": "Recipe Desc",
+          "placeholder": ""
+        }
+      },
+      "recipe_hero_img": {
+        "type": "Image",
+        "config": {
+          "label": "Recipe Hero Img",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "selected_recipes": {
-              "type": "SharedSlice"
-            },
-            "landing": {
+            "recipe_card": {
               "type": "SharedSlice"
             }
           }

@@ -1,0 +1,37 @@
+{
+  "id": "selected_recipes",
+  "type": "SharedSlice",
+  "name": "SelectedRecipes",
+  "description": "SelectedRecipes",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "section_title": {
+          "type": "Text",
+          "config": {
+            "label": "section title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "recipe_page": {
+          "type": "Link",
+          "config": {
+            "label": "Recipe Page",
+            "select": "document",
+            "customtypes": [
+              "recipe_page"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
