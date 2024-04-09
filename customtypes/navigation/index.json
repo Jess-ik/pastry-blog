@@ -33,6 +33,13 @@
                 "label": "Nav Text",
                 "placeholder": ""
               }
+            },
+            "pathname": {
+              "type": "Text",
+              "config": {
+                "label": "pathname",
+                "placeholder": ""
+              }
             }
           }
         }

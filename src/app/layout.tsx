@@ -17,6 +17,7 @@ const DMSerif = DM_Serif_Display({
 	subsets: ["latin"],
 });
 import { DM_Sans } from "next/font/google";
+import Header from "./components/Header";
 const DMSans = DM_Sans({
 	variable: "--font-dmsans",
   subsets: ["latin"],
@@ -47,7 +48,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${licorice.variable} ${DMSerif.variable} ${DMSans.variable}`}>{children}</body>
+      <body className={`${licorice.variable} ${DMSerif.variable} ${DMSans.variable} px-16`}>
+        <Header />
+        {children}</body>
     </html>
   );
 }

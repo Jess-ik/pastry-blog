@@ -2,3 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+body {
+  background-color: theme('colors.light');
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 300ms ease;
+  z-index: 900;
+
+}
+
+/* Scroller */
+
+header.scroll-up{
+  transform: translateY(0);
+}
+
+header.scroll-down{
+  transform: translateY(-100%);
+}
+
+header nav ul {
+display: flex;
+gap: 2rem;
+text-transform: uppercase;
+font-size: 12px;
+font-weight: 600;
+color: #4e5dcf;
+}
+
+nav ul li {
+  padding: .1rem 0;
+}
+
+nav ul li a {
+  position: relative;
+}
+
+nav ul li a:after {
+  position: absolute;
+  bottom: -.35rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: theme('colors.darkBlue');
+  height: 2px;
+  transition: all .5s;
+}
+
+nav ul li a:hover:after {
+  width: 100%;
+}
+
+.active-nav {
+  border-bottom: 2px solid theme('colors.darkBlue');
+  color: theme('colors.darkBlue');
+}
+
+
+/* SEARCH BUTTON */
+.search-wrapper {
+  width: 205px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: theme('colors.lightBlue');
+  border-radius: 9999px;
+  padding: .5rem .8rem;
+  width: max-content;
+}
+
+.search-input {
+  border: none;
+  background-color: transparent;
+  width: 0;
+  transition: width 120ms;
+}
+
+.search-expanded .search-input {
+  width: 10rem;
+}
+
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
