@@ -1,0 +1,44 @@
+{
+  "id": "recipes_sec",
+  "type": "SharedSlice",
+  "name": "RecipesSec",
+  "description": "RecipesSec",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Section title",
+            "placeholder": ""
+          }
+        },
+        "section_desc": {
+          "type": "Text",
+          "config": {
+            "label": "Section Desc",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "recipecard": {
+          "type": "Link",
+          "config": {
+            "label": "RecipeCard",
+            "select": "document",
+            "customtypes": [
+              "recipe_page"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

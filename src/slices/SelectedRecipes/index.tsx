@@ -41,7 +41,7 @@ const SelectedRecipes = ({ slice }: SelectedRecipesProps): JSX.Element => {
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} id="selectedRecipes">
 			<h2>{slice.primary.section_title}</h2>
-			<div className="grid grid-cols-2 gap-4">
+			<div className="grid grid-cols-2 gap-4 mt-12">
 				{selectedRecipes.map((item, index) => (
 					<div key={index} className="recipe-card">
 						<div className="cover">

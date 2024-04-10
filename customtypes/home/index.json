@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "about_sec": {
+              "type": "SharedSlice"
+            },
+            "recipes_sec": {
+              "type": "SharedSlice"
+            },
             "selected_recipes": {
               "type": "SharedSlice"
             },

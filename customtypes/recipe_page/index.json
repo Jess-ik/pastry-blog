@@ -34,6 +34,20 @@
           "thumbnails": []
         }
       },
+      "tag": {
+        "type": "Select",
+        "config": {
+          "label": "Tag",
+          "placeholder": "",
+          "options": [
+            "Viennoiseries",
+            "Biscuits",
+            "Gâteaux",
+            "Tartes",
+            "Crêmes"
+          ]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

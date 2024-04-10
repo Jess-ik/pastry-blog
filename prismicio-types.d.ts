@@ -4,7 +4,11 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = SelectedRecipesSlice | LandingSlice;
+type HomeDocumentDataSlicesSlice =
+  | AboutSecSlice
+  | RecipesSecSlice
+  | SelectedRecipesSlice
+  | LandingSlice;
 
 /**
  * Content for home documents
@@ -220,6 +224,19 @@ interface RecipePageDocumentData {
   recipe_hero_img: prismic.ImageField<never>;
 
   /**
+   * Tag field in *Recipe Page*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_page.tag
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag: prismic.SelectField<
+    "Viennoiseries" | "Biscuits" | "Gâteaux" | "Tartes" | "Crêmes"
+  >;
+
+  /**
    * Slice Zone field in *Recipe Page*
    *
    * - **Field Type**: Slice Zone
@@ -403,6 +420,111 @@ export type AllDocumentTypes =
   | RecipePageDocument
   | RecipesDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AboutSec → Primary*
+ */
+export interface AboutSecSliceDefaultPrimary {
+  /**
+   * Section Title field in *AboutSec → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_sec.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * Section Desc field in *AboutSec → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_sec.primary.section_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_desc: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *AboutSec → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_sec.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button text field in *AboutSec → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_sec.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Image01 field in *AboutSec → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_sec.primary.image01
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image01: prismic.ImageField<never>;
+
+  /**
+   * Image02 field in *AboutSec → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_sec.primary.image02
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image02: prismic.ImageField<never>;
+
+  /**
+   * Image03 field in *AboutSec → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_sec.primary.image03
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image03: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AboutSec Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSecSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutSecSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutSec*
+ */
+type AboutSecSliceVariation = AboutSecSliceDefault;
+
+/**
+ * AboutSec Shared Slice
+ *
+ * - **API ID**: `about_sec`
+ * - **Description**: AboutSec
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSecSlice = prismic.SharedSlice<
+  "about_sec",
+  AboutSecSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -690,6 +812,76 @@ export type RecipeCardSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *RecipesSec → Primary*
+ */
+export interface RecipesSecSliceDefaultPrimary {
+  /**
+   * Section title field in *RecipesSec → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipes_sec.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * Section Desc field in *RecipesSec → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipes_sec.primary.section_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_desc: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *RecipesSec → Items*
+ */
+export interface RecipesSecSliceDefaultItem {
+  /**
+   * RecipeCard field in *RecipesSec → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipes_sec.items[].recipecard
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  recipecard: prismic.ContentRelationshipField<"recipe_page">;
+}
+
+/**
+ * Default variation for RecipesSec Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecipesSecSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RecipesSecSliceDefaultPrimary>,
+  Simplify<RecipesSecSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *RecipesSec*
+ */
+type RecipesSecSliceVariation = RecipesSecSliceDefault;
+
+/**
+ * RecipesSec Shared Slice
+ *
+ * - **API ID**: `recipes_sec`
+ * - **Description**: RecipesSec
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecipesSecSlice = prismic.SharedSlice<
+  "recipes_sec",
+  RecipesSecSliceVariation
+>;
+
+/**
  * Primary content in *SelectedRecipes → Primary*
  */
 export interface SelectedRecipesSliceDefaultPrimary {
@@ -775,6 +967,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      AboutSecSlice,
+      AboutSecSliceDefaultPrimary,
+      AboutSecSliceVariation,
+      AboutSecSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageRightPrimary,
@@ -788,6 +984,11 @@ declare module "@prismicio/client" {
       RecipeCardSlice,
       RecipeCardSliceVariation,
       RecipeCardSliceDefault,
+      RecipesSecSlice,
+      RecipesSecSliceDefaultPrimary,
+      RecipesSecSliceDefaultItem,
+      RecipesSecSliceVariation,
+      RecipesSecSliceDefault,
       SelectedRecipesSlice,
       SelectedRecipesSliceDefaultPrimary,
       SelectedRecipesSliceDefaultItem,
