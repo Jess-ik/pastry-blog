@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | NewsletterSlice
   | AboutSecSlice
   | RecipesSecSlice
   | SelectedRecipesSlice
@@ -782,6 +783,81 @@ export type LandingSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Newsletter → Primary*
+ */
+export interface NewsletterSliceDefaultPrimary {
+  /**
+   * Section Title field in *Newsletter → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * Section Desc field in *Newsletter → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.primary.section_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_desc: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Newsletter → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button text field in *Newsletter → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Newsletter Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewsletterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Newsletter*
+ */
+type NewsletterSliceVariation = NewsletterSliceDefault;
+
+/**
+ * Newsletter Shared Slice
+ *
+ * - **API ID**: `newsletter`
+ * - **Description**: Newsletter
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSlice = prismic.SharedSlice<
+  "newsletter",
+  NewsletterSliceVariation
+>;
+
+/**
  * Default variation for RecipeCard Slice
  *
  * - **API ID**: `default`
@@ -981,6 +1057,10 @@ declare module "@prismicio/client" {
       LandingSliceDefaultPrimary,
       LandingSliceVariation,
       LandingSliceDefault,
+      NewsletterSlice,
+      NewsletterSliceDefaultPrimary,
+      NewsletterSliceVariation,
+      NewsletterSliceDefault,
       RecipeCardSlice,
       RecipeCardSliceVariation,
       RecipeCardSliceDefault,

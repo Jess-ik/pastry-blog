@@ -31,9 +31,10 @@ h3 {
 p {
   font-family: var(--font-dmsans);
   color: theme('colors.dark600');
+  font-weight: 100;
 }
 
-/* HEADER */
+/* ----- HEADER ----- */
 header {
   display: flex;
   justify-content: space-between;
@@ -46,16 +47,6 @@ header {
   transition: all 300ms ease;
   z-index: 900;
 
-}
-
-/* Scroller */
-
-header.scroll-up {
-  transform: translateY(0);
-}
-
-header.scroll-down {
-  transform: translateY(-100%);
 }
 
 header nav ul {
@@ -98,8 +89,16 @@ nav ul li a:hover:after {
   color: theme('colors.darkBlue');
 }
 
+/* Scroller */
+header.scroll-up {
+  transform: translateY(0);
+}
 
-/* SEARCH BUTTON */
+header.scroll-down {
+  transform: translateY(-100%);
+}
+
+/* Search button */
 .search-wrapper {
   width: 205px;
   display: flex;
@@ -127,7 +126,6 @@ nav ul li a:hover:after {
   width: 10rem;
 }
 
-
 .search-input:focus {
   outline: none;
 }
@@ -139,8 +137,7 @@ nav ul li a:hover:after {
   align-items: center;
 }
 
-/* LANDING */
-
+/* ----- LANDING ----- */
 .landing-intro {
   display: flex;
   flex-direction: column;
@@ -151,12 +148,8 @@ nav ul li a:hover:after {
   text-align: center;
 }
 
-
-
 #landing p {
-
   font-size: 1.3rem;
-
 }
 
 #landing button {
@@ -180,10 +173,7 @@ nav ul li a:hover:after {
   border-radius: 20px;
 }
 
-/* SELECTED RECIPES */
-
-
-
+/* ----- SELECTED RECIPES ----- */
 .recipe-card {
   background-color: theme('colors.lightBlue');
   border-radius: 20px;
@@ -203,21 +193,13 @@ nav ul li a:hover:after {
   align-items: flex-start;
 }
 
-.recipe-card-info p {
-  font-weight: 100;
-  font-size: 1rem;
-  text-align: left;
-
-}
 
 /* ALL RECIPES */
-#recipes {
+.recipes-intro {
   text-align: center;
 }
 
 .recipes-intro p {
-  font-weight: 100;
-  font-size: 1rem;
   max-width: 50%;
   margin: 0 auto;
 }
@@ -250,7 +232,7 @@ nav ul li a:hover:after {
   border-color: theme('colors.mainBlue');
 }
 
-/* ABOUT SEC */
+/* ----- ABOUT SEC ----- */
 .about-sec-container {
   border: 1px solid theme('colors.grey');
   border-radius: 20px;
@@ -295,4 +277,108 @@ nav ul li a:hover:after {
 #about-sec button:hover {
   border-color: theme('colors.grey');
   color: theme('colors.grey');
+}
+
+/* ----- NEWSLETTER SEC ----- */
+
+.news-container {
+  border-radius: 20px;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: theme('colors.darkBlue');
+  color: theme('colors.light');
+}
+
+.news-container p {
+  max-width: 50%;
+  color: theme('colors.light');
+}
+
+
+
+.news-form-container {
+  width: 360px;
+  height: 40px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
+  border-radius: 60px;
+  overflow: hidden;
+}
+
+.news-form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.news-form .add-email {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 20px;
+  cursor: text;
+  caret-color: theme('colors.grey');
+  color: theme('colors.dark600');
+}
+
+.news-form .submit-email {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  height: calc(100% - 8px);
+  width: 100px;
+  border: none;
+  border-radius: 60px;
+  outline: none;
+  padding: 0 20px;
+  cursor: pointer;
+  background: theme('colors.dark');
+  color: #FFFFFF;
+  transition: all .35s ease-in-out;
+}
+
+.news-form.done .submit-email {
+  width: calc(100% - 8px);
+  background: theme('colors.mainBlue');
+  color: theme('colors.darkBlue');
+  font-weight: 600;
+}
+
+.news-form .submit-email .before-submit,
+.news-form .submit-email .after-submit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 33px;
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: 1%;
+  transition: width .35s ease-in-out;
+}
+
+.news-form.done .submit-email .before-submit,
+.news-form:not(.done) .submit-email .after-submit {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.news-form .submit-email .after-submit {
+  transition-delay: .35s;
+}
+
+.news-form:not(.done) .submit-email .before-submit,
+.news-form.done .submit-email .after-submit {
+  visibility: visible;
+  opacity: 1;
 }

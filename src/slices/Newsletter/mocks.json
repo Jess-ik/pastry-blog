@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"section_title": {
+				"__TYPE__": "FieldContent",
+				"value": "citizen",
+				"type": "Text"
+			},
+			"section_desc": {
+				"__TYPE__": "FieldContent",
+				"value": "lose",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "though",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
