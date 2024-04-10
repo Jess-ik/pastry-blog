@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="scroll-smooth">
-			<body className={`${licorice.variable} ${DMSerif.variable} ${DMSans.variable} px-16`}>
+			<body className={`${licorice.variable} ${DMSerif.variable} ${DMSans.variable}`}>
 				<Header />
 				{children}
 				<Footer />

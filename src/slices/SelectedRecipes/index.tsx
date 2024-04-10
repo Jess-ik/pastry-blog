@@ -41,7 +41,7 @@ const SelectedRecipes = ({ slice }: SelectedRecipesProps): JSX.Element => {
 	console.log(selectedRecipes);
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} id="selectedRecipes">
-			<RevealWrapper origin="bottom" duration={2500} delay={400} distance="30px" className="flex justify-between items-center">
+			<RevealWrapper origin="bottom" duration={2500} delay={400} distance="30px" className="selected-recipes-intro ">
 				<h2>{slice.primary.section_title}</h2>
 				<button className="button">Voir toutes les recettes</button>
 			</RevealWrapper>
