@@ -86,6 +86,11 @@ footer nav ul {
   color: theme('colors.grey');
 }
 
+footer nav ul li:hover {
+  color: theme('colors.light');
+  transition: all .5s;
+}
+
 nav ul li {
   padding: .1rem 0;
 }
@@ -106,6 +111,14 @@ nav ul li a:after {
   background: theme('colors.darkBlue');
   height: 2px;
   transition: all .5s;
+}
+
+footer nav ul li a:after{
+  background: theme('colors.light');
+}
+
+footer nav ul.socials li a:hover:after{
+  display: none;
 }
 
 nav ul li a:hover:after {

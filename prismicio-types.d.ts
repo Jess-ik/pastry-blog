@@ -118,6 +118,16 @@ export interface NavigationDocumentDataSocialsItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   social_link: prismic.LinkField;
+
+  /**
+   * Social Icon field in *Navigation → Socials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.socials[].social_icon
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  social_icon: prismic.KeyTextField;
 }
 
 /**

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { NavigationDocument } from "../../../prismicio-types";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
+import { SiGithub, SiInstacart, SiInstagram, SiLinkedin } from "react-icons/si";
 
 export default function Footer() {
 	//fetch navigation datas
@@ -19,7 +20,7 @@ export default function Footer() {
 	return (
 		<footer className="bg-dark text-light">
 			<div className="main">
-				<span className=" font-bold">{navDatas?.data.logo}</span>
+				<span className=" font-bold"><Link href="/">{navDatas?.data.logo}</Link></span>
 				<nav className="">
 					<ul className="">
 						{navDatas?.data.links.map(({ nav_link, nav_text, pathname }, index) => (
@@ -30,16 +31,32 @@ export default function Footer() {
 					</ul>
 				</nav>
 				<nav className="">
-					<ul className="">
-						{navDatas?.data.socials.map(({ social_link }, index) => (
-							<li key={index}>
-								<PrismicNextLink field={social_link}>icon</PrismicNextLink>
-							</li>
-						))}
+					<ul className="socials">
+						<li>
+							<Link href="https://www.linkedin.com/in/jesslouvel/">
+								<SiLinkedin />
+							</Link>
+						</li>
+						<li>
+							<Link href="https://github.com/Jess-ik">
+								<SiGithub />
+							</Link>
+						</li>
+						<li>
+							<Link href="https://www.instagram.com/jess_louvel/">
+								<SiInstagram />
+							</Link>
+						</li>
 					</ul>
 				</nav>
-            </div>
-            <div className="secondary"><Link href="https://jess-louvel.com"><p>{navDatas?.data.copyright}</p></Link></div>
+			</div>
+			<div className="secondary">
+				<Link href="https://jess-louvel.com">
+					<p>
+						Fictional project made by <u>Jessica Louvel</u> for training purpose
+					</p>
+				</Link>
+			</div>
 		</footer>
 	);
 }

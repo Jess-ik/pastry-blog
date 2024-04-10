@@ -57,6 +57,13 @@
                 "placeholder": "",
                 "select": null
               }
+            },
+            "social_icon": {
+              "type": "Text",
+              "config": {
+                "label": "Social Icon",
+                "placeholder": ""
+              }
             }
           }
         }

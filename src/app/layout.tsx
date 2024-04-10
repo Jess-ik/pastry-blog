@@ -18,6 +18,7 @@ const DMSerif = DM_Serif_Display({
 import { DM_Sans } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollTop from "./components/ScrollTop";
 const DMSans = DM_Sans({
 	variable: "--font-dmsans",
 	subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
 				<Header />
 				{children}
 				<Footer />
+				<ScrollTop />
 			</body>
 		</html>
 	);

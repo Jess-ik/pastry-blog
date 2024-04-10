@@ -58,11 +58,13 @@ const RecipesSec = ({ slice }: RecipesSecProps): JSX.Element => {
 						<span onClick={() => setActiveFilter("*")}>Toutes</span>
 					</RevealWrapper>
 					{/* Map over all tags from RecipePageDocument to create a button for each tag */}
-					{Array.from(new Set(recipes.flatMap((recipe) => recipe.data.tag))).map((tag, index) => (
-						<RevealWrapper duration={1500} distance="30px" delay={600 + index * 200} key={index} data-filter={tag} className={`tag ${activeFilter === tag ? "active-tag" : ""}`}>
-							{tag && <span onClick={() => setActiveFilter(tag)}>{tag}</span>}
-						</RevealWrapper>
-					))}
+					{Array.from(new Set(recipes.flatMap((recipe) => recipe.data.tag)))
+						.filter((tag) => tag !== null) // Exclure les tags nuls
+						.map((tag, index) => (
+							<RevealWrapper duration={1500} distance="30px" delay={600 + index * 200} key={index} data-filter={tag} className={`tag ${activeFilter === tag ? "active-tag" : ""}`}>
+								{tag && <span onClick={() => setActiveFilter(tag)}>{tag}</span>}
+							</RevealWrapper>
+						))}
 				</div>
 			</div>
 			<div className="grid grid-cols-3 gap-4 mt-12">
