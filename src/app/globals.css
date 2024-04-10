@@ -289,7 +289,7 @@ header.scroll-down {
   object-fit: cover;
 }
 
-#about-sec button {
+.button {
   padding: .5rem 1rem;
   border: 1px solid theme('colors.dark');
   border-radius: 50px;
@@ -299,10 +299,9 @@ header.scroll-down {
   transition: all .5s ease;
   cursor: pointer;
   width: max-content;
-  margin-top: 2rem;
 }
 
-#about-sec button:hover {
+.button:hover {
   border-color: theme('colors.grey');
   color: theme('colors.grey');
 }
