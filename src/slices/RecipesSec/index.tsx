@@ -47,13 +47,13 @@ const RecipesSec = ({ slice }: RecipesSecProps): JSX.Element => {
 
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} id="recipes">
-			<div className="recipes-intro flex flex-col items-center gap-2">
+			<div className="recipes-intro">
 				<RevealWrapper origin="bottom" duration={2500} delay={400} distance="30px">
 					<h2>{slice.primary.section_title}</h2>
 					<p>{slice.primary.section_desc}</p>
 				</RevealWrapper>
 				{/* FILTER */}
-				<div className="filters flex gap-8 mt-12">
+				<div className="filters">
 					<RevealWrapper duration={1500} distance="30px" delay={500} data-filter="*" className={`tag ${activeFilter === "*" || activeFilter === "" ? "active-tag" : ""}`}>
 						<span onClick={() => setActiveFilter("*")}>Toutes</span>
 					</RevealWrapper>
@@ -67,11 +67,11 @@ const RecipesSec = ({ slice }: RecipesSecProps): JSX.Element => {
 						))}
 				</div>
 			</div>
-			<div className="grid grid-cols-3 gap-4 mt-12">
+			<div className="recipes-grid">
 				<AnimatePresence>
 					{filteredRecipes.map((recipe, index) => (
 						<motion.div key={index} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
-							<RevealWrapper duration={1500} distance="30px" delay={400 + index * 100} className="recipe-card !bg-transparent border border-grey h-full">
+							<RevealWrapper duration={1500} distance="30px" delay={400 + index * 100} className="recipe-card !bg-transparent border border-lightGrey h-full">
 								<div className="cover">
 									<PrismicNextImage field={recipe.data.recipe_hero_img} imgixParams={{ ar: "16:9", fit: "crop" }} />
 								</div>

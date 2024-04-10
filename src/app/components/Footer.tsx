@@ -20,7 +20,9 @@ export default function Footer() {
 	return (
 		<footer className="bg-dark text-light">
 			<div className="main">
-				<span className=" font-bold"><Link href="/">{navDatas?.data.logo}</Link></span>
+				<span className="font-bold">
+					<Link href="/">{navDatas?.data.logo}</Link>
+				</span>
 				<nav className="">
 					<ul className="">
 						{navDatas?.data.links.map(({ nav_link, nav_text, pathname }, index) => (

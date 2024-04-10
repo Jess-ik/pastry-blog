@@ -41,11 +41,11 @@ const SelectedRecipes = ({ slice }: SelectedRecipesProps): JSX.Element => {
 	console.log(selectedRecipes);
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} id="selectedRecipes">
-			<RevealWrapper origin="bottom" duration={2500} delay={400} distance="30px" className="border border-red-500 flex justify-between items-center">
+			<RevealWrapper origin="bottom" duration={2500} delay={400} distance="30px" className="flex justify-between items-center">
 				<h2>{slice.primary.section_title}</h2>
 				<button className="button">Voir toutes les recettes</button>
 			</RevealWrapper>
-			<div  className="grid grid-cols-2 gap-4 mt-12">
+			<div  className="selected-recipes-grid">
 				{selectedRecipes.map((item, index) => (
 					<RevealWrapper duration={1500} distance="30px" delay={500 + (index * 200)} key={index} className="recipe-card">
 						<div className="cover">

@@ -52,11 +52,7 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "recipe_card": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

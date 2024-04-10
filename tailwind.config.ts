@@ -1,3 +1,4 @@
+import { Grey_Qo } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -22,6 +23,7 @@ const config: Config = {
         lightBlue: '#DEE7FF',
         light: '#F4F8FF',
         grey: '#a2a4a7',
+        lightGrey:'#D9D9D9'
       }
     },
   },

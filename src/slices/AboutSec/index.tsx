@@ -21,13 +21,13 @@ const AboutSec = ({ slice }: AboutSecProps): JSX.Element => {
 					<p>{slice.primary.section_desc}</p>
 					<button className="button mt-8">{slice.primary.button_text}</button>
 				</div>
-				<div className="bento  ">
+				<div className="bento">
 					<PrismicNextImage field={slice.primary.image01} />
 				</div>
-				<div className="bento  row-span-2 ">
+				<div className="bento row-span-2 ">
 					<PrismicNextImage field={slice.primary.image02} />
 				</div>
-				<div className="bento  col-span-2">
+				<div className="bento col-span-2">
 					<PrismicNextImage field={slice.primary.image03} />
 				</div>
 			</RevealList>

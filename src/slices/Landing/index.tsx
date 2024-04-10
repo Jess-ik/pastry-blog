@@ -18,9 +18,9 @@ const Landing = ({ slice }: LandingProps): JSX.Element => {
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} id="landing">
 			<RevealWrapper origin="bottom" duration={2500} delay={400} distance="60px" className="landing-intro">
-				<h1 className="anim-item">{slice.primary.title}</h1>
-				<p className="anim-item">{slice.primary.intro}</p>
-				<button className="anim-item">
+				<h1>{slice.primary.title}</h1>
+				<p>{slice.primary.intro}</p>
+				<button>
 					<Link href="/#selectedRecipes">{slice.primary.cta_text}</Link>
 				</button>
 			</RevealWrapper>

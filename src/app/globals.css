@@ -64,15 +64,15 @@ footer .main {
   align-items: center;
 }
 
-footer .secondary{
-border-top: 1px solid theme('colors.grey');
-text-align: center;
-padding-top: 1rem;
+footer .secondary {
+  border-top: 1px solid theme('colors.grey');
+  text-align: center;
+  padding-top: 1rem;
 }
 
 footer .secondary p {
   color: theme('colors.grey');
-font-size: .8rem;
+  font-size: .8rem;
 }
 
 
@@ -113,11 +113,11 @@ nav ul li a:after {
   transition: all .5s;
 }
 
-footer nav ul li a:after{
+footer nav ul li a:after {
   background: theme('colors.light');
 }
 
-footer nav ul.socials li a:hover:after{
+footer nav ul.socials li a:hover:after {
   display: none;
 }
 
@@ -215,6 +215,13 @@ header.scroll-down {
 }
 
 /* ----- SELECTED RECIPES ----- */
+.selected-recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
 .recipe-card {
   background-color: theme('colors.lightBlue');
   border-radius: 20px;
@@ -234,15 +241,24 @@ header.scroll-down {
   align-items: flex-start;
 }
 
-
-/* ALL RECIPES */
+/* ----- ALL RECIPES ----- */
 .recipes-intro {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
 }
 
 .recipes-intro p {
   max-width: 50%;
   margin: 0 auto;
+}
+
+.filters {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .tag {
@@ -271,6 +287,13 @@ header.scroll-down {
 
 .active-tag:hover {
   border-color: theme('colors.mainBlue');
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
 }
 
 /* ----- ABOUT SEC ----- */
@@ -330,16 +353,14 @@ header.scroll-down {
   align-items: center;
   text-align: center;
   gap: 1rem;
-  background-color: theme('colors.darkBlue');
   color: theme('colors.light');
+  background-image: radial-gradient(circle at 32% 86%, rgba(162, 162, 162, 0.05) 0%, rgba(162, 162, 162, 0.05) 50%, rgba(95, 95, 95, 0.05) 50%, rgba(95, 95, 95, 0.05) 100%), radial-gradient(circle at 62% 1%, rgba(99, 99, 99, 0.05) 0%, rgba(99, 99, 99, 0.05) 50%, rgba(70, 70, 70, 0.05) 50%, rgba(70, 70, 70, 0.05) 100%), radial-gradient(circle at 16% 3%, rgba(80, 80, 80, 0.05) 0%, rgba(80, 80, 80, 0.05) 50%, rgba(228, 228, 228, 0.05) 50%, rgba(228, 228, 228, 0.05) 100%), linear-gradient(90deg, rgb(77, 89, 131), rgb(56, 65, 90));
 }
 
 .news-container p {
   max-width: 50%;
   color: theme('colors.light');
 }
-
-
 
 .news-form-container {
   width: 360px;
