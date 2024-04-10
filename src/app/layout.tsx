@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { createClient } from "@/prismicio";
 import "./globals.css";
 
-
 //FONTS
 import { Licorice } from "next/font/google";
 const licorice = Licorice({
@@ -18,10 +17,11 @@ const DMSerif = DM_Serif_Display({
 });
 import { DM_Sans } from "next/font/google";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 const DMSans = DM_Sans({
 	variable: "--font-dmsans",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+	subsets: ["latin"],
+	weight: ["400", "500", "700"],
 });
 
 // METADATA
@@ -42,15 +42,17 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${licorice.variable} ${DMSerif.variable} ${DMSans.variable} px-16`}>
-        <Header />
-        {children}</body>
-    </html>
-  );
+	return (
+		<html lang="en" className="scroll-smooth">
+			<body className={`${licorice.variable} ${DMSerif.variable} ${DMSans.variable} px-16`}>
+				<Header />
+				{children}
+				<Footer />
+			</body>
+		</html>
+	);
 }
