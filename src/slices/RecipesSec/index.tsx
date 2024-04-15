@@ -19,21 +19,25 @@ export type RecipesSecProps = SliceComponentProps<Content.RecipesSecSlice>;
 const RecipesSec = ({ slice }: RecipesSecProps): JSX.Element => {
 	//fetch recipes datas
 	const [recipes, setRecipes] = useState<RecipePageDocument<string>[]>([]);
-	useEffect(() => {
-		const fetchData = async () => {
-			const client = createClient();
-			const getRecipes = await client.getAllByType("recipe_page");
-			setRecipes(getRecipes);
-		};
-		fetchData();
-	}, []);
-	console.log(recipes);
 	// Handle Filtering
 	const [filteredRecipes, setfilteredRecipes] = useState<RecipePageDocument<string>[]>([]);
 	const [activeFilter, setActiveFilter] = useState<string>("*");
 
 	useEffect(() => {
-		console.log("Active Filter:", activeFilter);
+		const fetchData = async () => {
+			const client = createClient();
+			const getRecipes = await client.getAllByType("recipe_page");
+			setRecipes(getRecipes);
+			setfilteredRecipes(getRecipes as RecipePageDocument<string>[]);
+		};
+		fetchData();
+	}, []);
+	console.log(recipes);
+
+	
+
+	useEffect(() => {
+		
 		if (activeFilter === "*" || activeFilter === "") {
 			setfilteredRecipes(recipes);
 			return;
@@ -69,20 +73,25 @@ const RecipesSec = ({ slice }: RecipesSecProps): JSX.Element => {
 			</div>
 			<div className="recipes-grid">
 				<AnimatePresence>
-					{filteredRecipes.map((recipe, index) => (
-						<motion.div key={index} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
-							<RevealWrapper duration={1500} distance="30px" delay={400 + index * 100} className="recipe-card !bg-transparent border border-lightGrey h-full">
-								<div className="cover">
-									<PrismicNextImage field={recipe.data.recipe_hero_img} imgixParams={{ ar: "16:9", fit: "crop" }} />
-								</div>
-								<div className="recipe-card-info">
-									<h3>{recipe.data.recipe_name}</h3>
-									<p>{recipe.data.recipe_desc}</p>
-									<PrismicLink key={index} document={recipe}></PrismicLink>
-								</div>
-							</RevealWrapper>
-						</motion.div>
-					))}
+				{filteredRecipes.map((recipe, index) => {
+    
+    return (
+        <motion.div key={index} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
+          
+                <RevealWrapper duration={1500} distance="30px" delay={400 + index * 100} className="recipe-card !bg-transparent border border-lightGrey h-full">
+                    <div className="cover">
+                        <PrismicNextImage field={recipe.data.recipe_hero_img} imgixParams={{ ar: "16:9", fit: "crop" }} />
+                    </div>
+                    <div className="recipe-card-info">
+                        <h3>{recipe.data.recipe_name}</h3>
+                        <p>{recipe.data.recipe_desc}</p>
+                       <button className="button"><PrismicLink key={index} document={recipe}>Voir la recette</PrismicLink></button> 
+                    </div>
+                </RevealWrapper>
+         
+        </motion.div>
+    );
+})}
 				</AnimatePresence>
 			</div>
 		</section>

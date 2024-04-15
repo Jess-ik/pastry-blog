@@ -16,7 +16,7 @@ export type LandingProps = SliceComponentProps<Content.LandingSlice>;
 const Landing = ({ slice }: LandingProps): JSX.Element => {
 	
 	return (
-		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} id="landing">
+		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="" id="landing">
 			<RevealWrapper origin="bottom" duration={2500} delay={400} distance="60px" className="landing-intro">
 				<h1>{slice.primary.title}</h1>
 				<p>{slice.primary.intro}</p>

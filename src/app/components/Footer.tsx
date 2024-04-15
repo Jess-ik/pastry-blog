@@ -5,8 +5,10 @@ import { NavigationDocument } from "../../../prismicio-types";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import { SiGithub, SiInstacart, SiInstagram, SiLinkedin } from "react-icons/si";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+	const currentPath = usePathname();
 	//fetch navigation datas
 	const [navDatas, setNavDatas] = useState<NavigationDocument<string> | null>(null);
 	useEffect(() => {
@@ -26,7 +28,7 @@ export default function Footer() {
 				<nav className="">
 					<ul className="">
 						{navDatas?.data.links.map(({ nav_link, nav_text, pathname }, index) => (
-							<li key={index}>
+							<li key={index} className={pathname && ((currentPath === "/" && pathname === "/") || (currentPath.startsWith(pathname) && pathname !== "/")) ? "active-nav" : ""}>
 								<PrismicNextLink field={nav_link}>{nav_text}</PrismicNextLink>
 							</li>
 						))}
