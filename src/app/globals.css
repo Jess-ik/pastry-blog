@@ -36,7 +36,7 @@ p {
   font-weight: 100;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
   body {
     padding: 0 4rem;
   }
@@ -117,7 +117,7 @@ footer nav ul:not(.socials) li {
   border-bottom: 1px solid theme('colors.lightGrey');
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
 
   header,
   footer {
@@ -278,7 +278,7 @@ header.scroll-down {
   border-radius: 20px;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
   .landing-intro {
     display: flex;
     flex-direction: column;
@@ -313,7 +313,7 @@ header.scroll-down {
   background-color: theme('colors.lightBlue');
   border-radius: 20px;
   display: grid;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+
 }
 
 .recipe-card img {
@@ -330,7 +330,7 @@ header.scroll-down {
   align-items: flex-start;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
   .selected-recipes-intro {
     flex-direction: row;
   }
@@ -339,6 +339,10 @@ header.scroll-down {
 
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
+  }
+
+  .recipe-card {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -401,7 +405,7 @@ header.scroll-down {
   margin-top: 3rem;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
   .recipes-intro p {
     max-width: 50%;
     margin: 1rem auto;
@@ -429,7 +433,7 @@ header.scroll-down {
   grid-auto-rows: 300px;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
   .about-sec-container {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -498,7 +502,7 @@ header.scroll-down {
   overflow: hidden;
 }
 
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
   .news-container p {
     max-width: 50%;
   }

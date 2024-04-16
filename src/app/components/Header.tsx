@@ -62,10 +62,10 @@ export default function Header() {
 	const handleClick = () => setOpen(!open);
 
 	return (
-		<header className="bg-light flex flex-col md:flex-row justify-between items-center scroll-up">
-			<div className="w-full px-4 md:px-0 flex justify-between items-center">
+		<header className="bg-light flex flex-col lg:flex-row justify-between items-center scroll-up">
+			<div className="w-full px-4 lg:px-0 flex justify-between items-center">
 				<span className="font-bold">{navDatas?.data.logo}</span>
-				<nav className="hidden md:flex ml-[205px]">
+				<nav className="hidden lg:flex ml-[205px]">
 					<ul className="">
 						{navDatas?.data.links.map(({ nav_link, nav_text, pathname }, index) => (
 							<li key={index} className={pathname && ((currentPath === "/" && pathname === "/") || (currentPath.startsWith(pathname) && pathname !== "/")) ? "active-nav" : ""}>
@@ -74,10 +74,10 @@ export default function Header() {
 						))}
 					</ul>
 				</nav>
-				<div className="menu-toggle md:hidden" id="nav-close" onClick={handleClick}>
+				<div className="menu-toggle lg:hidden" id="nav-close" onClick={handleClick}>
 					{open ? <SlArrowUp /> : <SlMenu />}
 				</div>
-				<div className="hidden md:flex">
+				<div className="hidden lg:flex">
 					<SearchButton />
 				</div>
 			</div>
