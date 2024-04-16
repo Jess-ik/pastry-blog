@@ -6,6 +6,7 @@ export const components = {
   about_sec: dynamic(() => import("./AboutSec")),
   landing: dynamic(() => import("./Landing")),
   newsletter: dynamic(() => import("./Newsletter")),
+  recipe_info: dynamic(() => import("./RecipeInfo")),
   recipes_sec: dynamic(() => import("./RecipesSec")),
   selected_recipes: dynamic(() => import("./SelectedRecipes")),
 };

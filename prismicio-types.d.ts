@@ -4,6 +4,67 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for Author documents
+ */
+interface AuthorDocumentData {
+  /**
+   * Author Name field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.author_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author_name: prismic.KeyTextField;
+
+  /**
+   * Author Intro field in *Author*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.author_intro
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author_intro: prismic.KeyTextField;
+
+  /**
+   * Author Profile field in *Author*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.author_profile
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  author_profile: prismic.ImageField<never>;
+
+  /**
+   * Author Link field in *Author*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: author.author_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  author_link: prismic.LinkField;
+}
+
+/**
+ * Author document from Prismic
+ *
+ * - **API ID**: `author`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AuthorDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<AuthorDocumentData>, "author", Lang>;
+
 type HomeDocumentDataSlicesSlice =
   | NewsletterSlice
   | AboutSecSlice
@@ -195,7 +256,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type RecipePageDocumentDataSlicesSlice = never;
+type RecipePageDocumentDataSlicesSlice = RecipeInfoSlice;
 
 /**
  * Content for Recipe Page documents
@@ -246,6 +307,17 @@ interface RecipePageDocumentData {
   tag: prismic.SelectField<
     "Viennoiseries" | "Biscuits" | "Gâteaux" | "Tartes" | "Crêmes"
   >;
+
+  /**
+   * Author field in *Recipe Page*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_page.author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  author: prismic.ContentRelationshipField<"author">;
 
   /**
    * Slice Zone field in *Recipe Page*
@@ -306,7 +378,7 @@ export type RecipePageDocument<Lang extends string = string> =
     Lang
   >;
 
-type RecipesDocumentDataSlicesSlice = never;
+type RecipesDocumentDataSlicesSlice = RecipesSecSlice;
 
 /**
  * Content for Recipes documents
@@ -426,6 +498,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AuthorDocument
   | HomeDocument
   | NavigationDocument
   | RecipePageDocument
@@ -698,6 +771,96 @@ export type NewsletterSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *RecipeInfo → Primary*
+ */
+export interface RecipeInfoSliceDefaultPrimary {
+  /**
+   * Ingredients field in *RecipeInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_info.primary.ingredients
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  ingredients: prismic.KeyTextField;
+
+  /**
+   * Ingredients list field in *RecipeInfo → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_info.primary.ingredients_list
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  ingredients_list: prismic.RichTextField;
+
+  /**
+   * Instructions field in *RecipeInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_info.primary.instructions
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  instructions: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *RecipeInfo → Items*
+ */
+export interface RecipeInfoSliceDefaultItem {
+  /**
+   * Instructions text field in *RecipeInfo → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_info.items[].instructions_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  instructions_text: prismic.RichTextField;
+
+  /**
+   * Instruction image field in *RecipeInfo → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_info.items[].instruction_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  instruction_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for RecipeInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecipeInfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RecipeInfoSliceDefaultPrimary>,
+  Simplify<RecipeInfoSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *RecipeInfo*
+ */
+type RecipeInfoSliceVariation = RecipeInfoSliceDefault;
+
+/**
+ * RecipeInfo Shared Slice
+ *
+ * - **API ID**: `recipe_info`
+ * - **Description**: RecipeInfo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecipeInfoSlice = prismic.SharedSlice<
+  "recipe_info",
+  RecipeInfoSliceVariation
+>;
+
+/**
  * Primary content in *RecipesSec → Primary*
  */
 export interface RecipesSecSliceDefaultPrimary {
@@ -837,6 +1000,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AuthorDocument,
+      AuthorDocumentData,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -865,6 +1030,11 @@ declare module "@prismicio/client" {
       NewsletterSliceDefaultPrimary,
       NewsletterSliceVariation,
       NewsletterSliceDefault,
+      RecipeInfoSlice,
+      RecipeInfoSliceDefaultPrimary,
+      RecipeInfoSliceDefaultItem,
+      RecipeInfoSliceVariation,
+      RecipeInfoSliceDefault,
       RecipesSecSlice,
       RecipesSecSliceDefaultPrimary,
       RecipesSecSliceDefaultItem,

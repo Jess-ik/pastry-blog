@@ -37,9 +37,9 @@ const Newsletter = ({ slice }: NewsletterProps): JSX.Element => {
 				</RevealWrapper>
 				<div className="mt-10 news-form-container">
 					<form className="news-form">
-						<input className="add-email" type="email" placeholder="subscribe@me.now" />
+						<input className="add-email" type="email" placeholder="newsletter@kitchenaid.com" />
 						<button className="submit-email" type="button">
-							<span className="before-submit">Subscribe</span>
+							<span className="before-submit">S'abonner</span>
 							<span className="after-submit">Thank you for subscribing!</span>
 						</button>
 					</form>

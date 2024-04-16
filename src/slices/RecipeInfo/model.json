@@ -1,0 +1,60 @@
+{
+  "id": "recipe_info",
+  "type": "SharedSlice",
+  "name": "RecipeInfo",
+  "description": "RecipeInfo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "ingredients": {
+          "type": "Text",
+          "config": {
+            "label": "Ingredients",
+            "placeholder": ""
+          }
+        },
+        "ingredients_list": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Ingredients list",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "list-item"
+          }
+        },
+        "instructions": {
+          "type": "Text",
+          "config": {
+            "label": "Instructions",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "instructions_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Instructions text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "instruction_image": {
+          "type": "Image",
+          "config": {
+            "label": "Instruction image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

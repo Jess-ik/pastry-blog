@@ -585,3 +585,16 @@ header.scroll-down {
   visibility: visible;
   opacity: 1;
 }
+
+/* ----- RECIPE PAGE ----- */
+
+.recipe-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recipe-head img{
+  border-radius: 20px;
+}

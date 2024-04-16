@@ -48,11 +48,23 @@
           ]
         }
       },
+      "author": {
+        "type": "Link",
+        "config": {
+          "label": "Author",
+          "select": "document",
+          "customtypes": ["author"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "recipe_info": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
