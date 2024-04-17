@@ -27,14 +27,14 @@ const routes: prismic.ClientConfig["routes"] = [
     type: "recipe_page",
     path: "/recipes/:uid",
   },
-  //  {
-  //    type: "tips",
-  //    path: "/tips",
-  //   },
-  //   {
-  //     type: "about",
-  //     path: "/about",
-  //  },
+   {
+     type: "tips",
+     path: "/tips",
+    },
+    {
+      type: "about",
+      path: "/about",
+   },
 ];
 
 /**
