@@ -56,6 +56,20 @@
           "customtypes": ["author"]
         }
       },
+      "time": {
+        "type": "Text",
+        "config": {
+          "label": "Time",
+          "placeholder": ""
+        }
+      },
+      "quantity": {
+        "type": "Text",
+        "config": {
+          "label": "Quantity",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

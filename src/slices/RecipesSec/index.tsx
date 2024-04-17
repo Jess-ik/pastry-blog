@@ -80,11 +80,23 @@ const RecipesSec = ({ slice }: RecipesSecProps): JSX.Element => {
 									<div className="recipe-card-info">
 										<h3>{recipe.data.recipe_name}</h3>
 										<p>{recipe.data.recipe_desc}</p>
-										<button className="button">
-											<PrismicLink key={index} document={recipe}>
-												Voir la recette
-											</PrismicLink>
-										</button>
+										<div className="w-full flex justify-between uppercase text-sm">
+											<div className="flex gap-2 items-center font-semibold">
+												<span className="flex gap-2 items-center ">
+													<p className="font-semibold">{recipe.data.time}</p>
+												</span>
+												<p>•</p>
+												<span className="flex gap-2 items-center ">
+													<p className="font-semibold">{recipe.data.quantity}</p>
+												</span>
+											</div>
+
+											<button className="button">
+												<PrismicLink key={index} document={recipe}>
+													Voir la recette
+												</PrismicLink>
+											</button>
+										</div>
 									</div>
 								</RevealWrapper>
 							</motion.div>

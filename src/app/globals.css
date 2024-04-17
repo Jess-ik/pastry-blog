@@ -341,9 +341,7 @@ header.scroll-down {
 
   }
 
-  .recipe-card {
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-  }
+
 }
 
 /* ----- ALL RECIPES ----- */

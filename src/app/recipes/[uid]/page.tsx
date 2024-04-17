@@ -5,6 +5,7 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { FaBellConcierge, FaRegClock } from "react-icons/fa6";
 
 type Params = { uid: string };
 
@@ -40,10 +41,18 @@ export default async function Page({ params }: { params: Params }) {
 	return (
 		<section>
 			<div className="recipe-head text-center my-4">
-				<div className="my-4 max-w-[80%] mx-auto flex flex-col items-center gap-6">
+				<div className="my-4 max-w-[50%] mx-auto flex flex-col items-center gap-6">
 					<span className="button">{page.data.tag}</span>
 					<h1 className="">{page.data.recipe_name}</h1>
 					<p className="">{page.data.recipe_desc}</p>
+					<div className="flex gap-6 items-center">
+						<span className="flex gap-2 items-center">
+							<FaRegClock />
+							<p>{page.data.time}</p>
+						</span>
+						<p>•</p>
+						<span className="flex gap-2 items-center"><FaBellConcierge /><p>{page.data.quantity}</p></span>
+					</div>
 				</div>
 
 				<PrismicNextImage field={page.data.recipe_hero_img} imgixParams={{ ar: "2:1", fit: "crop" }} />

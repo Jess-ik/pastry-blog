@@ -320,6 +320,28 @@ interface RecipePageDocumentData {
   author: prismic.ContentRelationshipField<"author">;
 
   /**
+   * Time field in *Recipe Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_page.time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  time: prismic.KeyTextField;
+
+  /**
+   * Quantity field in *Recipe Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe_page.quantity
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quantity: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Recipe Page*
    *
    * - **Field Type**: Slice Zone
