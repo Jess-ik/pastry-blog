@@ -7,6 +7,10 @@ import { usePathname } from "next/navigation";
 import SearchButton from "./SearchButton";
 import { SlArrowUp, SlMenu } from "react-icons/sl";
 import Link from "next/link";
+import { RxCookie } from "react-icons/rx";
+import { Search } from "./Search";
+import SearchTest from "./SearchTest";
+import SearchPopup from "./SearchPopup";
 
 export default function Header() {
 	const currentPath = usePathname();
@@ -61,10 +65,23 @@ export default function Header() {
 	const [open, setOpen] = useState(false);
 	const handleClick = () => setOpen(!open);
 
+	// Handle search
+	const [searchValue, setSearchValue] = useState("");
+
+		const handleSearch = (value: string) => {
+			console.log(value);
+			setSearchValue(value);
+		};
+	
+
+	
+
 	return (
 		<header className="bg-light flex flex-col lg:flex-row justify-between items-center scroll-up">
 			<div className="w-full px-4 lg:px-0 flex justify-between items-center">
-				<span className="font-bold">{navDatas?.data.logo}</span>
+				<span className="font-bold flex gap-2 items-center">
+					<RxCookie /> {navDatas?.data.logo}
+				</span>
 				<nav className="hidden lg:flex ml-[205px]">
 					<ul className="">
 						{navDatas?.data.links.map(({ nav_link, nav_text, pathname }, index) => (
@@ -78,7 +95,9 @@ export default function Header() {
 					{open ? <SlArrowUp /> : <SlMenu />}
 				</div>
 				<div className="hidden lg:flex">
-					<SearchButton />
+					
+					<SearchTest onSearch={handleSearch} />
+					
 				</div>
 			</div>
 
@@ -86,11 +105,11 @@ export default function Header() {
 			<nav className={open ? "flex w-screen h-screen justify-center bg-light absolute top-[72px] transition-top duration-300" : "absolute top-[-200vh] transition-top duration-300"}>
 				<ul className="flex flex-col mt-16 items-center text-center gap-6">
 					{navDatas?.data.links.map(({ nav_link, nav_text, pathname }, index) => (
-						<li key={index} className={currentPath === `${pathname}` ? "active-nav" : ``}>
+						<li key={index} className={currentPath === `${pathname}` ? "active-nav" : ``} onClick={handleClick}>
 							<PrismicNextLink field={nav_link}>{nav_text}</PrismicNextLink>
 						</li>
 					))}
-					<SearchButton />
+					<SearchTest onSearch={handleSearch} />
 				</ul>
 			</nav>
 		</header>

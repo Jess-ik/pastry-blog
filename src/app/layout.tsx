@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
 	const settings = await client.getSingle("settings");
 
 	return {
-		title: settings.data.meta_title || "Recettes de Pâtisseries Délicieuses | KitchenBlog",
+		title: settings.data.meta_title || "Recettes de Pâtisseries Délicieuses | KitchenBook",
 		description: settings.data.meta_description || "Découvrez des recettes de pâtisseries délicieuses et faciles à réaliser avec votre robot pâtissier KitchenAid. Des gâteaux, tartes, et desserts pour régaler toute la famille.",
 		openGraph: {
 			images: [settings.data.og_image.url || ""],

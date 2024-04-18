@@ -8,7 +8,9 @@ export default async function Page() {
   const client = createClient();
   const page = await client.getSingle("tips");
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+    //   return <SliceZone slices={page.data.slices} components={components} />;
+    return <h1 className="mt-32 text-center">This page is under construction</h1>
+
 }
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -8,7 +8,7 @@ const components: JSXMapSerializer = {
 	listItem: ({ children }) => <li className=" text-darkBlue">{children}</li>,
 	oList: ({ children }) => <ol className="ml-6 list-decimal w-[80%]">{children}</ol>,
 	list: ({ children }) => <ul className="ml-6 list-disc">{children}</ul>,
-  paragraph: ({ children }) => <p className="pb-2">{children}</p>,
+  paragraph: ({ children }) => <p className="pb-2 w-[80%]">{children}</p>,
   
 };
 
@@ -33,7 +33,7 @@ const RecipeInfo = ({ slice }: RecipeInfoProps): JSX.Element => {
 				{slice.items.map((item, index) => (
 					<div key={index}>
 						<PrismicRichText components={components} field={item.instructions_text} />
-						<PrismicNextImage className="my-4 pb-2 rounded-2xl" field={item.instruction_image} imgixParams={{ ar: "3:2", fit: "crop" }} />
+						<PrismicNextImage className="mt-2 mb-4 rounded-2xl" field={item.instruction_image} imgixParams={{ ar: "3:2", fit: "crop" }} />
 					</div>
 				))}
 			</div>

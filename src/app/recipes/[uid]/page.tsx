@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: Params }) {
 	return (
 		<section>
 			<div className="recipe-head text-center my-4">
-				<div className="my-4 max-w-[50%] mx-auto flex flex-col items-center gap-6">
+				<div className="my-4 md:max-w-[50%] mx-auto flex flex-col items-center gap-6">
 					<span className="button">{page.data.tag}</span>
 					<h1 className="">{page.data.recipe_name}</h1>
 					<p className="">{page.data.recipe_desc}</p>
@@ -58,11 +58,11 @@ export default async function Page({ params }: { params: Params }) {
 				<PrismicNextImage field={page.data.recipe_hero_img} imgixParams={{ ar: "2:1", fit: "crop" }} />
 			</div>
 
-			<div className="grid grid-cols-3 gap-6 mt-16 ">
-				<div className="col-span-2">
+			<div className="grid md:grid-cols-3 gap-6 mt-16 ">
+				<div className="md:col-span-2">
 					<SliceZone slices={page.data.slices} components={components} />
 				</div>
-				<div className="col-span-1">
+				<div className="md:col-span-1">
 					{/* Afficher les données de l'auteur si elles sont disponibles */}
 					{author && (
 						<div className="rounded-2xl border border-lightGrey p-4 flex flex-col gap-4">
@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: Params }) {
 								<h3>{author.author_name}</h3>
 							</div>
 
-							<PrismicNextImage field={author.author_profile} />
+							<PrismicNextImage field={author.author_profile} className="rounded-2xl" />
 							<em className="text-dark600">{author.author_intro}</em>
 
 							<PrismicNextLink className="button" href={author.author_link.url}>

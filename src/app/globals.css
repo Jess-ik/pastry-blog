@@ -177,7 +177,8 @@ footer nav ul li a:after {
   background: theme('colors.light');
 }
 
-footer nav ul.socials li a:hover:after {
+footer nav ul.socials li a:hover:after,
+.active-nav a:hover:after {
   display: none;
 }
 
@@ -220,18 +221,20 @@ header.scroll-down {
   width: max-content;
 }
 
-.search-input {
+.ais-SearchBox-input {
   border: none;
   background-color: transparent;
   width: 0;
+  display: none;
   transition: width 120ms;
 }
 
-.search-expanded .search-input {
+.search-expanded .ais-SearchBox-input {
   width: 10rem;
+  display: block;
 }
 
-.search-input:focus {
+.ais-SearchBox-input:focus {
   outline: none;
 }
 
@@ -240,6 +243,22 @@ header.scroll-down {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ais-SearchBox { margin: 1em 0; }
+
+.ais-Pagination { margin-top: 1em }
+
+.left-panel { float: left; width: 250px; }
+
+.right-panel { margin-left: 260px; }
+
+.ais-SearchBox-form {
+  background: transparent;
+  border: none;
+}
+.ais-SearchBox-form::before {
+display: none;
 }
 
 /* ----- LANDING ----- */
@@ -593,6 +612,6 @@ header.scroll-down {
   gap: 1rem;
 }
 
-.recipe-head img{
+.recipe-head img {
   border-radius: 20px;
 }
