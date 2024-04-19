@@ -78,7 +78,7 @@ export default function Header() {
 
 	return (
 		<header className="bg-light flex flex-col lg:flex-row justify-between items-center scroll-up">
-			<div className="w-full px-4 lg:px-0 flex justify-between items-center">
+			<div className="w-full  lg:px-0 flex justify-between items-center">
 				<span className="font-bold flex gap-2 items-center">
 					<RxCookie /> {navDatas?.data.logo}
 				</span>

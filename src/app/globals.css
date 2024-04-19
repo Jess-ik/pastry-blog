@@ -28,6 +28,7 @@ h2 {
 h3 {
   font-family: var(--font-dmserif);
   font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 p {
@@ -121,7 +122,7 @@ footer nav ul:not(.socials) li {
 
   header,
   footer {
-    padding: 1.5rem 5rem;
+    padding: 1.5rem 4rem;
   }
 
   footer .main {
@@ -205,60 +206,75 @@ header.scroll-down {
 }
 
 /* Search button */
-.search-wrapper {
-  width: 205px;
-  display: flex;
-  justify-content: flex-end;
-}
 
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+.search-input {
   background-color: theme('colors.lightBlue');
-  border-radius: 9999px;
-  padding: .5rem .8rem;
-  width: max-content;
 }
 
-.ais-SearchBox-input {
-  border: none;
-  background-color: transparent;
-  width: 0;
-  display: none;
-  transition: width 120ms;
+
+
+
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  opacity: 0;
+  background:
+    linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 43%, #3f4146 45%, #3f4146 55%, rgba(0, 0, 0, 0) 57%, rgba(0, 0, 0, 0) 100%),
+    linear-gradient(135deg, transparent 0%, transparent 43%, #3f4146 45%, #3f4146 55%, transparent 57%, transparent 100%);
 }
 
-.search-expanded .ais-SearchBox-input {
-  width: 10rem;
-  display: block;
+input[type="search"]:focus::-webkit-search-cancel-button {
+  opacity: .3;
+  pointer-events: all;
 }
 
-.ais-SearchBox-input:focus {
-  outline: none;
+
+
+.search-popup {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  margin: 0 auto;
+  z-index: 10;
+  padding: 1rem;
+  background-color: theme('colors.light');
+  width: 30vw;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(56, 65, 90, .2);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(56, 65, 90, .2);
+  box-shadow: 0px 0px 10px 2px rgba(56, 65, 90, .2);
 }
 
-.search-button {
-  cursor: pointer;
+.search-popup ul {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-popup li {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
   align-items: center;
 }
 
-.ais-SearchBox { margin: 1em 0; }
-
-.ais-Pagination { margin-top: 1em }
-
-.left-panel { float: left; width: 250px; }
-
-.right-panel { margin-left: 260px; }
-
-.ais-SearchBox-form {
-  background: transparent;
-  border: none;
+.search-popup img {
+  border-radius: 10px;
+  width: 30%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
-.ais-SearchBox-form::before {
-display: none;
+
+.search-popup .search-info {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
 }
 
 /* ----- LANDING ----- */
